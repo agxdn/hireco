@@ -48,13 +48,12 @@ class BookingController extends Controller
         $pickupLocationId = $request->pickup_location_id;
         $dropoffLocationId = $request->dropoff_location_id;
         $age = $user->dob->age;
-        $cost = 0;
 
         // Find car
         $car = $this->carService->findCar($carId);
 
-        // Calculate total rental cost
-        $cost = $this->bookingService->calculateTotalDailyRate($car, $startDate, $endDate);
+        // Calculate total rental cost example
+        // $cost = $this->bookingService->calculateTotalDailyRate($car, $startDate, $endDate); // Calculate total rental cost
 
         // Find the booking policy
         $policy = $this->bookingPolicyService->findPolicyByAge($age);
